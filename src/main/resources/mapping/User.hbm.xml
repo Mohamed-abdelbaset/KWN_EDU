@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 23, 2017 5:52:38 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="test_hibernate" name="com.mycompany.kwn_edu.models.User" optimistic-lock="version" table="user">
+    <id name="email" type="string">
+      <column length="45" name="email"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="password" type="string">
+      <column length="45" name="password" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="roles" table="role">
+      <key>
+        <column length="45" name="email" not-null="true"/>
+      </key>
+      <one-to-many class="com.mycompany.kwn_edu.models.Role"/>
+    </set>
+  </class>
+</hibernate-mapping>
