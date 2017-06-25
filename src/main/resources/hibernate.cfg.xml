@@ -46,8 +46,8 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test_hibernate</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">0174801457</property>
-    <mapping resource="dao_mapping/Test.hbm.xml"/>
-    <mapping resource="com/mycompany/kwn_edu/dao/User.hbm.xml"/>
-    <mapping resource="com/mycompany/kwn_edu/dao/Role.hbm.xml"/>
+    <mapping class="com.mycompany.kwn_edu.models.User"/>
+    <mapping class="com.mycompany.kwn_edu.models.Test"/>
+    <mapping class="com.mycompany.kwn_edu.models.Role"/>
   </session-factory>
 </hibernate-configuration>

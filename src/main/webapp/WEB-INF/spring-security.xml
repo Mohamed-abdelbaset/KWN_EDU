@@ -23,16 +23,20 @@
     
     
     <security:http auto-config="true" use-expressions="true" >
-        <security:intercept-url pattern="/login" />
+        <security:intercept-url pattern="/" access="permitAll" />
+        <security:intercept-url pattern="/home" access="permitAll" />
+        <security:intercept-url pattern="/admin" access="hasRole('ADMIN')" />
+        <security:intercept-url pattern="/user" access="hasRole('ADMIN') or hasRole('USER')" />
         
         <security:form-login 
             login-page="/login" 
+            login-processing-url="/j_spring_security_check"
             default-target-url="/home"
             authentication-failure-url="/login?error" 
-            username-parameter="username"
+            username-parameter="email"
             password-parameter="password" />
              
-        <!--<security:csrf/>-->
+        <security:csrf/>
         
     </security:http>
 

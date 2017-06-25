@@ -5,7 +5,6 @@
  */
 package com.mycompany.kwn_edu.dao.controllers;
 
-import com.mycompany.kwn_edu.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +27,16 @@ public class MainController {
         return "login";
     }
     
+    @RequestMapping( value = "/admin", method = RequestMethod.GET)
+    public String admin(){    
+        return "admin";
+    }
+    
+    
+    @RequestMapping( value = "/user", method = RequestMethod.GET)
+    public String user(){    
+        return "user";
+    }
     
     
 }

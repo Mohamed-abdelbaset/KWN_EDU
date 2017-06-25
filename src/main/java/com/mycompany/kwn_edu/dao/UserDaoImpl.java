@@ -14,11 +14,18 @@ import org.springframework.stereotype.Repository;
  *
  * @author mrbioeng
  */
+
 @Repository
 public class UserDaoImpl implements UserDao{
 
+    public UserDaoImpl() {
+        System.out.println("");
+    }
+
     @Autowired
     private SessionFactory sessionFactory;
+
+    
     
     @Override
     public User findByUserEmail(String email) {
