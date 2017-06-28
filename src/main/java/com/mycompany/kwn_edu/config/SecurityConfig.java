@@ -26,23 +26,30 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    @Qualifier("userDetailsService")
-    UserDetailsService userDetailsService;
+    @Qualifier("learnerLoginService")
+    private UserDetailsService userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/home").permitAll()
+                .antMatchers("/access_denied").permitAll()
+                .antMatchers("/user").access("hasRole('USER')")
                 .antMatchers("/admin").access("hasRole('ADMIN')")
-                .antMatchers("/user").access("hasRole('ADMIN') or hasRole('USER')")
+                
                 .and().formLogin()
+                
                 .loginPage("/login")
-                .loginProcessingUrl("/j_spring_security_check")
+                .successForwardUrl("/home")
                 .failureUrl("/login?error")
                 .usernameParameter("email")
                 .passwordParameter("password")
+                
+                .and().logout().logoutSuccessUrl("/login?logout")
+                
                 .and().exceptionHandling().accessDeniedPage("/access_denied")
+                
                 .and().csrf();
 
     }

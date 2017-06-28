@@ -24,24 +24,19 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author mrbioeng
  */
-@Service("userDetailsService")
-@Transactional
-public class LoginService implements UserDetailsService {
+@Service("learnerLoginService")
+public class LearnerLoginService implements UserDetailsService {
 
     @Autowired
     private UserDao userDao;
 
-    
-    public LoginService() {
-        System.out.println("");
-
-    }
-
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String email) {
 
         User user = userDao.findByUserEmail(email);
-        return createSpringUser(user);
+        UserDetails userDetails = createSpringUser(user);
+        return userDetails;
     }
 
     private UserDetails createSpringUser(User user) {
