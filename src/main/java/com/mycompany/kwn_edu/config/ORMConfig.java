@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @PropertySource(value = { "classpath:jdbc.properties" })
-@ComponentScan({ "com.mycompany.kwn_edu.config" })
+//@ComponentScan({ "com.mycompany.kwn_edu.config" })
 public class ORMConfig {
     
     @Autowired

@@ -19,16 +19,24 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author mrbioeng
  */
 @Controller
-public class MainController {
+public class AdminController {
         
-    @RequestMapping( value = {"/", "/home"})
+    @RequestMapping( value = {"/admin/", "/admin/home"})
     public String home(Principal p){
-        return "all/home";
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return "admin/home";
     }
     
-    @RequestMapping( value = "/aboutus", method = RequestMethod.GET)
+    @RequestMapping( value = "/admin/login")
+    public String login(@RequestParam(value = "error", required = false) String error){  
+        System.out.println("");
+        return "admin/login";
+    }
+    
+    @RequestMapping( value = "/admin/access_denied", method = RequestMethod.GET)
     public String accessDenied(final HttpServletRequest request, Principal p){ 
-        return "all/aboutus";
+        System.out.println("");
+        return "admin/access_denied";
     }
     
 }

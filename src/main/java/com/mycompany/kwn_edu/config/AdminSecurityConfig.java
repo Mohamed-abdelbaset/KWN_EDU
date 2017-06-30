@@ -22,30 +22,31 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  *
  * @author mrbioeng
  */
-@Order(2)
-@Configuration("securityConfig")
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+//@Order(1)
+//@Configuration("adminSecurityConfig")
+//@EnableWebSecurity
+public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
+/*
     @Autowired
-    @Qualifier("learnerLoginService")
+    @Qualifier("adminLoginService")
     private UserDetailsService userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/learner/login").permitAll()
-                .antMatchers("/learner/**").access("hasRole('USER')")
+                .antMatchers("/admin/home").access("hasRole('ADMIN')")
                 
                 .and().formLogin()
                 
-                .loginPage("/learner/login")
-                .defaultSuccessUrl("/learner/home", true)
-                .failureUrl("/learner/login?error")
+                .loginPage("/admin/login")
+                .successForwardUrl("/admin/home")
+                .failureUrl("/admin/login?error")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 
-                .and().exceptionHandling().accessDeniedPage("/learner/access_denied")
+                .and().logout().logoutSuccessUrl("/admin/login?logout")
+                
+                .and().exceptionHandling().accessDeniedPage("/admin/access_denied")
                 
                 .and().csrf();
 
@@ -61,5 +62,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder;
     }
-
+*/
 }

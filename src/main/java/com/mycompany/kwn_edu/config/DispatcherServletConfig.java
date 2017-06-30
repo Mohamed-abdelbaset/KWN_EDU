@@ -22,7 +22,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.mycompany.kwn_edu")
-@Import(value = { SecurityConfig.class })
+//@Import(value = { SecurityConfig.class })
 public class DispatcherServletConfig extends WebMvcConfigurerAdapter{
 
     @Bean

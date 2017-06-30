@@ -39,6 +39,7 @@
 
 	<h1>Spring Security Login Form (Database + Hibernate Authentication)</h1>
 
+        <h1>admin login</h1>
 	<div id="login-box">
 
 		<h3>Login with Username and Password</h3>
@@ -51,7 +52,7 @@
 		</c:if>
 
 		<form name='loginForm'
-			action="<c:url value='/login' />" method='POST'>
+			action="<c:url value='/admin/login' />" method='POST'>
 
 			<table>
 				<tr>

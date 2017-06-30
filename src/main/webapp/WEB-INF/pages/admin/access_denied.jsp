@@ -1,6 +1,6 @@
 <%-- 
-    Document   : admin
-    Created on : Jun 24, 2017, 7:52:28 PM
+    Document   : access_denied
+    Created on : Jun 25, 2017, 3:12:57 PM
     Author     : mrbioeng
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello admin!</h1>
+        <h1>admin access denied</h1>
     </body>
 </html>
